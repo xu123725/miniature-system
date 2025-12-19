@@ -1,0 +1,82 @@
+[
+  {
+    "id": "01.txt",
+    "text": "露点（Dew Point）与相对湿度之间的关系通常可以通过饱和蒸汽压计算来求解。常见的经验公式之一是 Magnus 公式：\n  e_s(T) = 6.112 * exp(17.62 * T / (243.12 + T))  （T 单位：°C，e_s 单位：hPa）\n已知相对湿度 RH（%）和温度 T（°C），实际水汽压 e = RH/100 * e_s(T)。\n露点 Td 满足 e = e_s(Td)，可通过数值或反函数求出 Td。\nMetPy 中提供了 dewpoint_from_relative_humidity 等函数进行准确计算（输入需带单位）。\n参考：Magnus 公式、MetPy 文档（metpy.calc.dewpoint_from_relative_humidity）。",
+    "source": "docs\\01.txt"
+  },
+  {
+    "id": "02.txt",
+    "text": "饱和水汽压（saturation vapor pressure）描述在给定温度下空气中水汽达到饱和时的压力。常见经验公式：\n  Magnus-Tetens： e_s(T) = 6.112 * exp(17.62*T/(243.12+T)) （T: °C, e_s: hPa）\n也有针对更高精度的改写（不同常数适用于不同温度范围）。\n在工程/气象分析中需注意单位一致性（hPa vs Pa）。",
+    "source": "docs\\02.txt"
+  },
+  {
+    "id": "03.txt",
+    "text": "比湿（specific humidity, q）是指单位质量湿空气中水汽质量与湿空气总质量之比（kg/kg）。\n混合比（mixing ratio, w）定义为水汽与干空气质量之比，常见关系：\n  q = w / (1 + w)\n在低湿条件下 q ≈ w。常见气象数据有时以 g/kg 表示，比湿需转为 kg/kg 才能被 MetPy 正确使用。\n混合比与饱和混合比的计算依赖气压与饱和水汽压，可用 MetPy 的 mixing_ratio / saturation_mixing_ratio 等函数计算（注意单位）。",
+    "source": "docs\\03.txt"
+  },
+  {
+    "id": "04.txt",
+    "text": "虚温（Virtual temperature）用于考虑水汽对空气密度的影响：\n  Tv = T * (1 + 0.61 * q)  (T为开尔文, q 为比湿 kg/kg)\n位温（Potential temperature）定义为把气块逆温压到 1000 hPa 时的温度：\n  θ = T * (p0/p)^(R_d/c_p)\n其中 p0 = 1000 hPa，R_d 是干空气气体常数，c_p 为定压比热。\nMetPy 提供 potential_temperature、virtual_temperature 等函数，输入需带单位（K 或 degC + units）。",
+    "source": "docs\\04.txt"
+  },
+  {
+    "id": "05.txt",
+    "text": "风场常用表示：\n- 风速 (speed) 与风向 (direction, degree) 可以转换为分量 u（东西向，通常为东向为正）与 v（南北向，北向为正）：\n    u = -speed * sin(direction_rad)\n    v = -speed * cos(direction_rad)\n  注意：气象中风向通常表示风是从哪个方向来的（来自北为0°），不同约定会改变符号。\n- MetPy 中有 wind_components 和 wind_direction 等函数，务必确认 direction 的定义与函数期望一致。",
+    "source": "docs\\05.txt"
+  },
+  {
+    "id": "06.txt",
+    "text": "CAPE（Convective Available Potential Energy）与 CIN（Convective Inhibition）用于衡量大气不稳定性：\n- CAPE 表示提升一个气块在整个上升过程中可获得的总浮力能量（J/kg）。\n- CIN 表示抑制能量（负值），是阻碍对流发展的能量。\n计算通常需要温度廓线、露点廓线与环境压力-温度剖面，且对插值与边界层混合有敏感性。\nMetPy 提供 parcel_profile、cape_cin 等工具，但输入数据的垂直配准、单元与质量非常关键。",
+    "source": "docs\\06.txt"
+  },
+  {
+    "id": "07.txt",
+    "text": "热指数（Heat Index）和风寒（Wind Chill）是经验公式，反映人体感受：\n- Heat Index 以温度（°F）和相对湿度为输入给出体感温度。\n- Wind Chill 使用温度与风速（mph 或 m/s）来计算低温下的体感温度。\n这些公式有适用范围（例如 Heat Index 在高温高湿条件下适用），超出范围不应盲目使用。",
+    "source": "docs\\07.txt"
+  },
+  {
+    "id": "docs_08_metpy_usage_guidelines_Version2.txt",
+    "text": "MetPy 使用建议：\n- 一律使用带单位的 Quantity（pint）进行计算，避免手工单位转换错误。\n- 在调用 MetPy 函数前确认输入单位（temperature: degC 或 K，pressure: hPa 或 Pa，specific_humidity: kg/kg）。\n- 对批量数据优先进行向量化（Series/ndarray + units），若遇到异常再回退逐条计算以定位问题。\n- MetPy 的部分方法对缺失值/NaN 的处理有限，需事先填补或按掩码处理。\n- 保持 MetPy、pint、numpy 的版本一致性，推荐使用 conda-forge 安装 MetPy。",
+    "source": "docs\\docs_08_metpy_usage_guidelines_Version2.txt"
+  },
+  {
+    "id": "docs_09_wmo_synoptic_and_observation_practices_Version2.txt",
+    "text": "WMO SYNOPTIC OBSERVATION GUIDELINES (摘要 & 要点)\n\n摘要：\n- 观测的准确性与可比性依赖于标准化的测量高度、仪器校准与环境敷设（例如气温与相对湿度应在标准屏或辐射屏内在2m高度测量）。\n- 时间戳采用协调世界时(UTC)并标注观测类型（即时、小时平均、逐分钟），气象台常用小时整点或观测时次记录。\n- 采样频率与统计口径需明确：瞬时值、平均值、最大/最小值、积累量（如降水）等定义各不相同。\n\n关键建议（对数据处理重要）：\n1. 一律记录并传递观测高度、测量单位与采样窗口（如 10-min mean）。\n2. 温度湿度传感器需按厂家和标准做偏置校正；数据质量控制(QC)应检测跳变、超范围与不可物理现象。\n3. 对风速/风向：说明测量是瞬时值还是平均值，风向定义（来自/去向）必须一致。\n参考：WMO 技术手册与各国气象台观测手册（建议把具体章节的 PDF 摘要加入 KB）。",
+    "source": "docs\\docs_09_wmo_synoptic_and_observation_practices_Version2.txt"
+  },
+  {
+    "id": "docs_10_metpy_dewpoint_and_humidity_Version2.txt",
+    "text": "MetPy: 露点与湿度计算（操作说明与注意事项）\n\n要点：\n- 露点计算常用函数：dewpoint_from_relative_humidity、dewpoint_from_specific_humidity（MetPy 实现）。\n- 输入必须带单位（temperature: degC or K, relative_humidity: percent 或 fraction, pressure: hPa/Pa）。\n- 如果提供比湿(specific_humidity)，注意单位：MetPy 常期望以 kg/kg 提供（许多观测以 g/kg 给出，需要 /1000 转换）。\n\n常见错误与防护：\n1. 单位混淆：若 RH 给成 0.85（已分数）但函数期望 percent（85），结果会严重偏差。务必统一单位并在 prompt/metadata 中注明。\n2. 当温度接近或低于某阈值时（极端环境），经验公式可能不再准确，建议在异常区间触发更严谨模型或返回“不确定”。\n3. 缺失 pressure 参数时，某些基于气压的比湿->露点转换需提供合理默认或提示用户补充。",
+    "source": "docs\\docs_10_metpy_dewpoint_and_humidity_Version2.txt"
+  },
+  {
+    "id": "docs_12_psychrometric_relations_and_magnus_Version2.txt",
+    "text": "Psychrometrics & Magnus 公式（常用经验关系摘要）\n\nMagnus-Tetens 经验式（用于饱和蒸汽压 e_s(T), T in °C）：\n  e_s(T) = 6.112 * exp(17.62 * T / (243.12 + T))   (hPa)\n已知 RH (%) 与温度 T，实际水汽压：\n  e = RH/100 * e_s(T)\n解露点 Td 满足 e_s(Td) = e（可用反函数或数值解）。",
+    "source": "docs\\docs_12_psychrometric_relations_and_magnus_Version2.txt"
+  },
+  {
+    "id": "docs_13_unit_conventions_and_common_pitfalls_Version2.txt",
+    "text": "单位约定与常见陷阱（实务清单）\n\n建议统一约定（在 KB 与 Agent schema 中固定）：\n- 温度：degC（显示）/K（内部计算可能更安全）；明确函数输入期望。\n- 气压：hPa（常用）或 Pa；注意 MetPy 有些函数默认 Pa。\n- 比湿：kg/kg（不要以 g/kg 直接调用 MetPy）\n- 相对湿度：percent（0–100）而不是 fraction（0–1），除非明确要求。\n- 风向：度（°），并明确是表示“来自”还是“去往”。",
+    "source": "docs\\docs_13_unit_conventions_and_common_pitfalls_Version2.txt"
+  },
+  {
+    "id": "docs_14_data_quality_control_qc_checks_Version2.txt",
+    "text": "数据质量控制 (QC) 检查清单（建议实现项）\n\n基本 QC 步骤：\n- 范围检查：温度、RH、气压、风速与经纬度超出物理或站点合理范围时标注异常。\n- 一致性检查：露点不应高于气温；相对湿度 ∈ [0,100]。\n- 时间连续性：检测时间戳重复、倒退或跳变；对不规则采样做重采样或插值策略。\n- 突变检测：逐时差分异常大值可能指示故障，建议结合移动窗口和 MAD（median absolute deviation）方法检测。\n- 值替换策略：若少量缺失可用插值或邻近时间平均；大量缺失应标注并避免直接计算。",
+    "source": "docs\\docs_14_data_quality_control_qc_checks_Version2.txt"
+  },
+  {
+    "id": "docs_15_reanalysis_and_observation_climatology_guidance_Version2.txt",
+    "text": "再分析产品与观测数据的融合（简要）\n\n要点：\n- 观测与再分析（reanalysis）数据分辨率、同化方法与偏差特性不同，不能直接互换使用。\n- 如需用再分析作背景场或缺测值插补，请注明来源（ERA5/NCEP 等）并考虑代表性误差。",
+    "source": "docs\\docs_15_reanalysis_and_observation_climatology_guidance_Version2.txt"
+  },
+  {
+    "id": "docs_16_time_handling_resampling_and_aggregation_Version2.txt",
+    "text": "时间处理、重采样与聚合（实用指南）\n\n关键点：\n- 明确时间基准（UTC/local）和采样定义（instant, mean, sum over window）。\n- 重采样策略：\n  - 对物理量（温度、湿度）：用时间加权平均或线性插值（保留 NaN 掩码处理）。\n  - 对累计量（降水）：使用 sum 并注意窗口对齐。",
+    "source": "docs\\docs_16_time_handling_resampling_and_aggregation_Version2.txt"
+  },
+  {
+    "id": "docs_17_example_case_studies_and_checklist_Version2.txt",
+    "text": "示例案例与分析检查清单（便于模型模仿专家行为）\n\n案例 1: 计算露点并判断结露风险\n- 输入：小时逐时观测，含 气温(℃)、相对湿度(%)、气压(hPa)\n- 步骤：QC -> 单位归一化 -> compute dewpoint -> 检查 dewpoint 与 temp 差（若差 < 0.5°C，提示结露风险）\n- 输出格式：数值列 + 结论段（带阈值与置信度）",
+    "source": "docs\\docs_17_example_case_studies_and_checklist_Version2.txt"
+  }
+]
