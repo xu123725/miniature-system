@@ -12,7 +12,7 @@ from src.config import logger
 
 # Page Config
 st.set_page_config(
-    page_title="Meteorology Analyzer",
+    page_title="气象分析助手",
     page_icon="🌤️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -32,14 +32,14 @@ def clear_chat():
 
 # Sidebar
 with st.sidebar:
-    st.title("🌤️ MetAnalyzer")
+    st.title("🌤️ 气象分析仪")
     st.markdown("---")
     
     # API Key Input
     api_key_input = st.text_input(
-        "🔑 DeepSeek API Key", 
+        "🔑 DeepSeek API 密钥", 
         type="password", 
-        help="Enter your API Key here. It will not be stored permanently.",
+        help="在此输入您的 API 密钥。密钥仅在当前会话有效，不会永久保存。",
         value=st.session_state.api_key if st.session_state.api_key else ""
     )
     if api_key_input:
@@ -50,37 +50,37 @@ with st.sidebar:
     st.markdown("---")
 
     # File Uploader
-    uploaded_file = st.file_uploader("Upload Station Data (CSV)", type=['csv', 'txt'])
+    uploaded_file = st.file_uploader("上传气象站数据 (CSV)", type=['csv', 'txt'])
     if uploaded_file:
         try:
-            with st.spinner("Loading data..."):
+            with st.spinner("正在加载数据..."):
                 # Use the new data loader
                 df = load_data(uploaded_file)
                 st.session_state.df = df
-                st.success(f"✅ Loaded {len(df)} records")
-                st.markdown(f"**Columns:** {', '.join(df.columns[:5])}...")
+                st.success(f"✅ 成功加载 {len(df)} 条记录")
+                st.markdown(f"**包含列名:** {', '.join(df.columns[:5])}...")
         except Exception as e:
-            st.error(f"Failed to load data: {e}")
+            st.error(f"数据加载失败: {e}")
 
     st.markdown("---")
-    st.markdown("### 🛠️ Actions")
+    st.markdown("### 🛠️ 快捷操作")
     
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("📊 Stats", use_container_width=True):
+        if st.button("📊 数据统计", use_container_width=True):
              if st.session_state.df is not None:
-                st.session_state.messages.append({"role": "user", "content": "Show me the dataset statistics."})
+                st.session_state.messages.append({"role": "user", "content": "请展示数据集的统计信息。"})
                 st.session_state.messages.append({
                     "role": "assistant", 
-                    "content": "Here are the statistics:", 
+                    "content": "以下是数据统计结果：", 
                     "type": "dataframe",
                     "dataframe": st.session_state.df.describe()
                 })
              else:
-                st.warning("Load data first!")
+                st.warning("请先加载数据！")
     
     with col2:
-        st.button("🗑️ Clear", on_click=clear_chat, use_container_width=True)
+        st.button("🗑️ 清空对话", on_click=clear_chat, use_container_width=True)
 
 # Initialize Agent (Re-initialize if API Key changes or first run)
 # Note: st.cache_resource is good, but we need to invalidate it if API key changes.
@@ -95,23 +95,23 @@ agent = get_agent_instance(st.session_state.api_key)
 
 
 # Main Chat Interface
-st.title("💬 Meteorology Assistant")
+st.title("💬 气象分析助手")
 
 # Welcome Message
 if st.session_state.df is None:
-    st.info("👋 Welcome! Please upload a weather station CSV file in the sidebar to get started.")
+    st.info("👋 欢迎！请在左侧上传气象站 CSV 文件以开始分析。")
     if not st.session_state.api_key:
-        st.warning("⚠️ Don't forget to enter your DeepSeek API Key in the sidebar!")
+        st.warning("⚠️ 别忘了在侧边栏输入您的 DeepSeek API 密钥！")
 
 # Display chat messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         # Display Thought if available (for assistant)
         if message.get("thought"):
-            with st.expander("💭 Thought Process", expanded=False):
-                st.markdown(f"**Reasoning:** {message['thought']}")
+            with st.expander("💭 思考过程", expanded=False):
+                st.markdown(f"**推理:** {message['thought']}")
                 if message.get("action") and message.get("action") != "None":
-                    st.markdown(f"**Action:** `{message['action']}`")
+                    st.markdown(f"**执行:** `{message['action']}`")
         
         # Display Content
         if message.get("type") == "dataframe" and "dataframe" in message:
@@ -125,11 +125,11 @@ for message in st.session_state.messages:
             st.pyplot(message["figure"])
 
 # Chat Input
-if prompt := st.chat_input("Ask about weather data (e.g., 'Plot temperature for Lanzhou')..."):
+if prompt := st.chat_input("询问气象数据（例如：'绘制兰州站的气温变化曲线'）..."):
     if st.session_state.df is None:
-        st.error("⚠️ Please upload a data file first.")
+        st.error("⚠️ 请先上传数据文件。")
     elif not st.session_state.api_key:
-        st.error("⚠️ Please enter your API Key in the sidebar.")
+        st.error("⚠️ 请在侧边栏输入 API 密钥。")
     else:
         # Add user message to history
         st.session_state.messages.append({"role": "user", "content": prompt})
@@ -140,8 +140,8 @@ if prompt := st.chat_input("Ask about weather data (e.g., 'Plot temperature for 
         with st.chat_message("assistant"):
             try:
                 # Use st.status for better UX
-                with st.status("🧠 Agent is thinking...", expanded=True) as status:
-                    st.write("Analyzing request...")
+                with st.status("🧠 智能体正在思考...", expanded=True) as status:
+                    st.write("正在解析请求...")
                     
                     # Call the stateless agent
                     response = agent.run(
@@ -156,15 +156,15 @@ if prompt := st.chat_input("Ask about weather data (e.g., 'Plot temperature for 
                     figure = response.get("figure", None)
                     
                     if action and action != "None":
-                        st.write(f"Executing tool: `{action}`")
+                        st.write(f"正在调用工具: `{action}`")
                     
-                    status.update(label="✅ Analysis Complete", state="complete", expanded=False)
+                    status.update(label="✅ 分析完成", state="complete", expanded=False)
 
                 # Display Thought (Collapsed by default after status closes)
                 if thought:
-                    with st.expander("💭 Thought Process", expanded=False):
-                        st.markdown(f"**Reasoning:** {thought}")
-                        st.markdown(f"**Action:** `{action}`")
+                    with st.expander("💭 思考过程", expanded=False):
+                        st.markdown(f"**推理:** {thought}")
+                        st.markdown(f"**执行:** `{action}`")
 
                 # Display Result
                 st.markdown(result)
@@ -184,5 +184,5 @@ if prompt := st.chat_input("Ask about weather data (e.g., 'Plot temperature for 
                 st.session_state.messages.append(msg_data)
                 
             except Exception as e:
-                st.error(f"An error occurred: {e}")
+                st.error(f"发生错误: {e}")
                 logger.exception("App Error")

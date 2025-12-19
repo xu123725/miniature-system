@@ -57,7 +57,7 @@ class MeteorologyAgent:
         """
         if df is None or df.empty:
             return {
-                "thought": "User provided no data.",
+                "thought": "用户未提供数据。",
                 "action": "None",
                 "result": "请先加载数据文件 (CSV)。",
                 "figure": None
@@ -72,7 +72,7 @@ class MeteorologyAgent:
         except Exception as e:
             logger.error(f"LLM Call Failed: {e}")
             return {
-                "thought": "LLM call failed.",
+                "thought": "LLM 调用失败。",
                 "action": "None",
                 "result": f"AI 服务暂时不可用: {str(e)}",
                 "figure": None
@@ -112,41 +112,41 @@ class MeteorologyAgent:
                 history_str += f"{role}: {content}\n"
 
         prompt = f"""
-You are a senior Meteorologist and Data Scientist. 
-Your goal is to answer the user's request by analyzing the provided weather data.
+你是一位资深气象学家和数据科学家。
+你的目标是通过分析提供的气象数据来回答用户的请求。
 
-### Dataset Info
-- Columns: {columns_info}
-- Data Types: {dtypes_info}
-- Sample Data:
+### 数据集信息
+- 列名: {columns_info}
+- 数据类型: {dtypes_info}
+- 样例数据:
 {head_info}
 
-### Available Tools
-You have access to the following python tools. 
-Choose the most appropriate tool to solve the problem.
-If the user asks for visualization, prefer 'plot_time_series' or 'plot_correlation_heatmap' or 'plot_station_distribution'.
-If the user asks for calculation, look for relevant calculation tools.
+### 可用工具
+你可以使用以下 Python 工具。
+选择最合适的工具来解决问题。
+如果用户请求可视化，优先使用 'plot_time_series'、'plot_correlation_heatmap' 或 'plot_station_distribution'。
+如果用户请求计算，查找相关的计算工具。
 
 {tools_desc}
 
-### Instructions
-1. Analyze the user's request.
-2. Determine if you need to use a tool or just answer directly.
-3. If using a tool, specify the tool name and arguments precisely based on the dataset columns.
-4. Output MUST be a strictly valid JSON object. Do not include markdown code blocks (```json ... ```).
+### 指令
+1. 分析用户的请求。
+2. 确定是否需要使用工具，或者直接回答。
+3. 如果使用工具，根据数据集列名精确指定工具名称和参数。
+4. 输出必须是严格有效的 JSON 对象。不要包含 markdown 代码块 (```json ... ```)。
 
-### Output Format (JSON)
+### 输出格式 (JSON)
 {{
-    "thought": "Your reasoning process here...",
-    "tool": "tool_name_or_None",
-    "args": {{ "arg_name": "value", ... }},
-    "response": "Final answer if no tool is needed"
+    "thought": "你的思考推理过程（请用中文）...",
+    "tool": "工具名称_或_None",
+    "args": {{ "参数名": "值", ... }},
+    "response": "如果不需要工具，在此给出最终回答（请用中文）"
 }}
 
-### User Request
+### 用户请求
 {query}
 
-### Conversation History
+### 对话历史
 {history_str}
 """
         return prompt
@@ -192,7 +192,7 @@ If the user asks for calculation, look for relevant calculation tools.
             
             # If all fails, treat as text response
             return {
-                "thought": "Failed to parse structured response.",
+                "thought": "无法解析结构化响应。",
                 "tool": "None",
                 "response": response_text
             }
@@ -201,7 +201,7 @@ If the user asks for calculation, look for relevant calculation tools.
         """
         Execute the tool specified in the plan.
         """
-        thought = plan.get("thought", "Processing...")
+        thought = plan.get("thought", "正在处理...")
         tool_name = plan.get("tool", "None")
         args = plan.get("args", {})
         text_response = plan.get("response", "")
@@ -217,8 +217,8 @@ If the user asks for calculation, look for relevant calculation tools.
         if tool_name not in self.tools:
             return {
                 "thought": thought,
-                "action": f"Attempted to call unknown tool: {tool_name}",
-                "result": f"Error: Tool '{tool_name}' not found.",
+                "action": f"尝试调用未知工具: {tool_name}",
+                "result": f"错误: 未找到工具 '{tool_name}'。",
                 "figure": None
             }
 
@@ -238,8 +238,8 @@ If the user asks for calculation, look for relevant calculation tools.
                 fig = tool_func(df, **args)
                 return {
                     "thought": thought,
-                    "action": f"Called {tool_name}({args})",
-                    "result": "Chart generated successfully.",
+                    "action": f"调用 {tool_name}({args})",
+                    "result": "图表生成成功。",
                     "figure": fig
                 }
             else:
@@ -273,14 +273,14 @@ If the user asks for calculation, look for relevant calculation tools.
                     # Try to find the result value
                     return {
                         "thought": thought,
-                        "action": f"Called {tool_name}({args})",
-                        "result": f"Calculation Result: {msg}",
+                        "action": f"调用 {tool_name}({args})",
+                        "result": f"计算结果: {msg}",
                         "figure": None
                     }
                 else:
                      return {
                         "thought": thought,
-                        "action": f"Called {tool_name}({args})",
+                        "action": f"调用 {tool_name}({args})",
                         "result": str(result),
                         "figure": None
                     }
@@ -289,7 +289,7 @@ If the user asks for calculation, look for relevant calculation tools.
             logger.exception(f"Tool Execution Failed: {tool_name}")
             return {
                 "thought": thought,
-                "action": f"Failed call to {tool_name}",
-                "result": f"Error executing tool: {str(e)}",
+                "action": f"调用 {tool_name} 失败",
+                "result": f"执行工具时出错: {str(e)}",
                 "figure": None
             }
