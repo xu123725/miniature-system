@@ -1,9 +1,0 @@
-streamlit
-pandas
-metpy
-langchain-deepseek
-python-dotenv
-matplotlib
-seaborn
-scipy
-numpy
