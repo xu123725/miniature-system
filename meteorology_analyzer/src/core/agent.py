@@ -22,9 +22,15 @@ class MeteorologyAgent:
     Orchestrates the flow: Query -> LLM (Plan) -> Tool (Execute) -> Result.
     """
 
-    def __init__(self):
+    def __init__(self, api_key: Optional[str] = None):
+        """
+        Initialize the Agent.
+        
+        Args:
+            api_key: Optional API Key for LLM service injection.
+        """
         logger.info("Initializing MeteorologyAgent...")
-        self.llm = LLMService()
+        self.llm = LLMService(api_key=api_key)
         self.tools = self._register_tools()
         logger.info(f"Loaded {len(self.tools)} tools.")
 
@@ -91,7 +97,14 @@ class MeteorologyAgent:
         Construct the system prompt for the LLM.
         """
         # Data Profile
-        columns_info = ", ".join(df.columns.tolist())
+        all_columns = df.columns.tolist()
+        
+        # Prevent token explosion if too many columns
+        if len(all_columns) > 50:
+            columns_info = ", ".join(all_columns[:50]) + f"...(等{len(all_columns)}列)"
+        else:
+            columns_info = ", ".join(all_columns)
+
         dtypes_info = str(df.dtypes.to_dict())
         try:
             head_info = df.head(3).to_markdown(index=False)
@@ -132,7 +145,7 @@ class MeteorologyAgent:
 ### 指令
 1. 分析用户的请求。
 2. 确定是否需要使用工具，或者直接回答。
-3. 如果使用工具，根据数据集列名精确指定工具名称和参数。
+3. **关键规则**：不要在 args 中传递 'df'、'data' 或 'records' 参数。系统会自动将当前数据集注入给工具。你只需要指定列名（如 x_col, y_cols）和其他配置参数。
 4. 输出必须是严格有效的 JSON 对象。不要包含 markdown 代码块 (```json ... ```)。
 
 ### 输出格式 (JSON)
@@ -227,44 +240,37 @@ class MeteorologyAgent:
         try:
             logger.info(f"Executing tool {tool_name} with args {args}")
             
-            # Check if it's a plotting tool (based on module or name)
-            is_plotting = tool_name.startswith("plot_")
+            # --- 修复核心逻辑开始 ---
             
-            if is_plotting:
-                # Plotting tools expect DataFrame as first arg
-                # Ensure args don't contain 'df' as it's passed positionally
-                if 'df' in args: del args['df']
+            # 1. 绘图工具：自动注入 DataFrame
+            if tool_name.startswith("plot_"):
+                # 强制删除 LLM 可能错误生成的 df/data 参数
+                args.pop('df', None)
+                args.pop('data', None)
                 
+                # 直接将当前的 df 对象传给函数
                 fig = tool_func(df, **args)
                 return {
                     "thought": thought,
-                    "action": f"调用 {tool_name}({args})",
+                    "action": f"调用 {tool_name}",
                     "result": "图表生成成功。",
                     "figure": fig
                 }
+            
+            # 2. 计算工具 (MetPy)：自动注入 Records
             else:
-                # Calculation tools (MetPy) expect records (List[Dict]) usually
-                # But let's check if we should pass df or records
-                # Based on metpy_calcs.py, they take (records, extra_kwargs) or similar
-                # The wrapper `compute_with_metpy` takes `records`.
-                # So we convert DF to records.
+                # 强制删除 LLM 可能错误生成的 records 参数
+                args.pop('records', None)
+                
+                # 性能优化：将 DataFrame 转为记录列表传给计算工具
+                # 注意：这里假设所有计算工具都接受第一个位置参数为数据列表
+                # 如果你的 metpy_calcs 需要特定的过滤（比如只算兰州），
+                # 实际上应该在这里根据 args 里的 'station' 参数先对 df 做过滤
+                
+                # 简单的全量计算逻辑：
                 records = df.to_dict('records')
                 
-                # The dynamic tools in metpy_calcs.py have signature: tool(records, extra_kwargs=None)
-                # But the generated signature in _get_tools_description might show metpy signature
-                # We need to bridge this.
-                
-                # If the tool is one of the manually wrapped ones in metpy_calcs.py, it expects records.
-                # Let's inspect the function to be sure.
-                # Actually, in metpy_calcs.py:
-                # def tool(records: list, extra_kwargs: Dict[str, Any] = None)
-                
-                # So we pass records. The args from LLM should go into extra_kwargs?
-                # Or does the tool expect args as kwargs?
-                # The wrapper: return compute_with_metpy(records, name, extra_kwargs=extra_kwargs)
-                # compute_with_metpy likely uses extra_kwargs to find parameters.
-                
-                # We will pass args as extra_kwargs.
+                # 调用工具
                 result = tool_func(records, extra_kwargs=args)
                 
                 # Format result
@@ -284,6 +290,8 @@ class MeteorologyAgent:
                         "result": str(result),
                         "figure": None
                     }
+            
+            # --- 修复核心逻辑结束 ---
 
         except Exception as e:
             logger.exception(f"Tool Execution Failed: {tool_name}")
