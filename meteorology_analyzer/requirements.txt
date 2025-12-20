@@ -1,0 +1,16 @@
+streamlit
+pandas
+metpy
+langchain-deepseek
+python-dotenv
+matplotlib
+seaborn
+scipy
+numpy
+langchain>=0.1.0
+langchain-community
+langchain-huggingface
+pypdf
+faiss-cpu
+sentence-transformers
+langchain-text-splitters
