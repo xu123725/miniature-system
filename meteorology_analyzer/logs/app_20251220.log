@@ -1,0 +1,6 @@
+2025-12-20 12:22:59,609 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2025-12-20 12:26:13,199 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2025-12-20 12:26:20,256 - meteorology_analyzer - INFO - Successfully loaded data using utf-8-sig encoding.
+2025-12-20 12:26:20,257 - meteorology_analyzer - INFO - Loaded 451 records with columns: ['站名', '站点号', '年', '月', '日', '时', '气温(℃)', '最高气温(℃)', '最低气温(℃)', '相对湿度(%)', '气压(hPa)', '3小时降水(mm)', '平均风速(m/s)', '平均风向(°)', '能见度(km)']
+2025-12-20 12:26:53,659 - meteorology_analyzer - ERROR - LLM query failed: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****YWj: is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-12-20 12:29:42,987 - meteorology_analyzer - INFO - LLM Service initialized successfully.
