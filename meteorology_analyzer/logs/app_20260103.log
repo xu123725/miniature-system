@@ -1,0 +1,28 @@
+2026-01-03 14:15:26,037 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:15:45,337 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:27:06,051 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:27:26,314 - meteorology_analyzer - INFO - Successfully loaded data using utf-8-sig encoding.
+2026-01-03 14:27:26,321 - meteorology_analyzer - INFO - Detected time columns, synthesizing '时间' column...
+2026-01-03 14:27:26,350 - meteorology_analyzer - INFO - Successfully synthesized '时间' column and sorted data.
+2026-01-03 14:27:26,353 - meteorology_analyzer - INFO - Loaded 451 records with columns: ['站名', '站点号', '年', '月', '日', '时', '气温_C', '最高气温_C', '最低气温_C', '相对湿度_Percent', '气压_hPa', '3小时降水_mm', '平均风速_ms', '平均风向', '能见度_km', '时间']
+2026-01-03 14:27:31,935 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:32:04,499 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:32:09,232 - meteorology_analyzer - INFO - Successfully loaded data using utf-8-sig encoding.
+2026-01-03 14:32:09,240 - meteorology_analyzer - INFO - Detected time columns, synthesizing '时间' column...
+2026-01-03 14:32:09,261 - meteorology_analyzer - INFO - Successfully synthesized '时间' column and sorted data.
+2026-01-03 14:32:09,262 - meteorology_analyzer - INFO - Loaded 451 records with columns: ['站名', '站点号', '年', '月', '日', '时', '气温_C', '最高气温_C', '最低气温_C', '相对湿度_Percent', '气压_hPa', '3小时降水_mm', '平均风速_ms', '平均风向', '能见度_km', '时间']
+2026-01-03 14:32:14,213 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:35:02,591 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:43:54,882 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:44:04,796 - meteorology_analyzer - INFO - Successfully loaded data using utf-8-sig encoding.
+2026-01-03 14:44:04,806 - meteorology_analyzer - INFO - Detected time columns, synthesizing '时间' column...
+2026-01-03 14:44:04,818 - meteorology_analyzer - INFO - Successfully synthesized '时间' column and sorted data.
+2026-01-03 14:44:04,819 - meteorology_analyzer - INFO - Loaded 451 records with columns: ['站名', '站点号', '年', '月', '日', '时', '气温_C', '最高气温_C', '最低气温_C', '相对湿度_Percent', '气压_hPa', '3小时降水_mm', '平均风速_ms', '平均风向', '能见度_km', '时间']
+2026-01-03 14:44:10,963 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:56:40,768 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:56:46,120 - meteorology_analyzer - INFO - Successfully loaded data using utf-8-sig encoding.
+2026-01-03 14:56:46,126 - meteorology_analyzer - INFO - Detected time columns, synthesizing '时间' column...
+2026-01-03 14:56:46,145 - meteorology_analyzer - INFO - Successfully synthesized '时间' column and sorted data.
+2026-01-03 14:56:46,147 - meteorology_analyzer - INFO - Loaded 451 records with columns: ['站名', '站点号', '年', '月', '日', '时', '气温_C', '最高气温_C', '最低气温_C', '相对湿度_Percent', '气压_hPa', '3小时降水_mm', '平均风速_ms', '平均风向', '能见度_km', '时间']
+2026-01-03 14:56:52,590 - meteorology_analyzer - INFO - LLM Service initialized successfully.
+2026-01-03 14:57:11,492 - meteorology_analyzer - INFO - LLM Service initialized successfully.

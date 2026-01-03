@@ -1,0 +1,569 @@
+2025-12-21 16:42:09,544 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 16:42:16,203 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 16:42:16,233 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 16:42:19,433 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 16:42:19,433 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 16:42:19,434 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:42:19,434 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:42:21,976 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:42:21,976 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:42:57,143 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'露点温度'的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 16:42:57,143 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'露点温度'的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 16:42:57,145 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度'}
+2025-12-21 16:42:57,145 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度'}
+2025-12-21 16:42:57,155 - dynamic_meteor - ERROR - Tool Execution Failed: consult_knowledge_base
+Traceback (most recent call last):
+  File "C:\Users\15731\PycharmProjects\pythonProject3\meteorology_analyzer\src\core\agent.py", line 356, in _execute_plan
+    result = tool_func(records, extra_kwargs=args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MeteorologyAgent._register_tools.<locals>.consult_knowledge_base() got an unexpected keyword argument 'extra_kwargs'
+2025-12-21 16:42:57,155 - dynamic_meteor - ERROR - Tool Execution Failed: consult_knowledge_base
+Traceback (most recent call last):
+  File "C:\Users\15731\PycharmProjects\pythonProject3\meteorology_analyzer\src\core\agent.py", line 356, in _execute_plan
+    result = tool_func(records, extra_kwargs=args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MeteorologyAgent._register_tools.<locals>.consult_knowledge_base() got an unexpected keyword argument 'extra_kwargs'
+2025-12-21 16:51:23,540 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 16:51:30,637 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 16:51:32,510 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 16:51:32,510 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 16:51:32,511 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:51:32,511 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:52:10,944 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 16:52:10,944 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 16:52:16,918 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:52:16,918 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:52:30,137 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: 'ascii' codec can't encode characters in position 13-26: ordinal not in range(128)
+2025-12-21 16:52:30,137 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: 'ascii' codec can't encode characters in position 13-26: ordinal not in range(128)
+2025-12-21 16:52:30,138 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 16:52:30,138 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 16:53:24,649 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: 'ascii' codec can't encode characters in position 13-26: ordinal not in range(128)
+2025-12-21 16:53:24,649 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: 'ascii' codec can't encode characters in position 13-26: ordinal not in range(128)
+2025-12-21 16:53:24,650 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 16:53:24,650 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 16:58:50,434 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 16:58:50,434 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 16:58:55,946 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:58:55,946 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 16:59:12,514 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: 'ascii' codec can't encode characters in position 143-149: ordinal not in range(128)
+2025-12-21 16:59:12,514 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: 'ascii' codec can't encode characters in position 143-149: ordinal not in range(128)
+2025-12-21 16:59:12,514 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 16:59:12,514 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 17:01:24,123 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:01:29,368 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:01:31,087 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:01:32,913 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:01:32,913 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:01:32,914 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:01:32,914 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:01:35,063 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:01:35,063 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:02:04,027 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'露点温度'的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "什么是露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:02:04,027 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'露点温度'的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "什么是露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:02:04,029 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '什么是露点温度'}
+2025-12-21 17:02:04,029 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '什么是露点温度'}
+2025-12-21 17:08:22,266 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问‘什么是露点温度’。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库。虽然对话历史中显示了之前查询的结果，但内容被严重分割，难以直接形成连贯回答。为了确保回答的准确性和权威性，我应该再次查询知识库，获取关于‘露点温度’的完整、清晰的定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义、概念、物理意义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:08:22,266 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问‘什么是露点温度’。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库。虽然对话历史中显示了之前查询的结果，但内容被严重分割，难以直接形成连贯回答。为了确保回答的准确性和权威性，我应该再次查询知识库，获取关于‘露点温度’的完整、清晰的定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义、概念、物理意义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:08:22,266 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问‘什么是露点温度’。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库。虽然对话历史中显示了之前查询的结果，但内容被严重分割，难以直接形成连贯回答。为了确保回答的准确性和权威性，我应该再次查询知识库，获取关于‘露点温度’的完整、清晰的定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义、概念、物理意义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:08:22,268 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义、概念、物理意义'}
+2025-12-21 17:08:22,268 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义、概念、物理意义'}
+2025-12-21 17:08:22,268 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义、概念、物理意义'}
+2025-12-21 17:09:21,590 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:09:28,389 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:09:30,266 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:09:30,266 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:09:30,267 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:09:30,267 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:10:16,373 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:10:16,373 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:10:21,503 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:10:21,503 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:10:42,176 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念“露点温度”的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:10:42,176 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念“露点温度”的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:10:42,178 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度'}
+2025-12-21 17:10:42,178 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度'}
+2025-12-21 17:26:23,916 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是露点温度'，这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索结果返回了关于露点温度的信息，但内容被分割成大量片段，可读性差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度 定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:26:23,916 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是露点温度'，这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索结果返回了关于露点温度的信息，但内容被分割成大量片段，可读性差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度 定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:26:23,916 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是露点温度'，这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索结果返回了关于露点温度的信息，但内容被分割成大量片段，可读性差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度 定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:26:23,918 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度 定义'}
+2025-12-21 17:26:23,918 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度 定义'}
+2025-12-21 17:26:23,918 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度 定义'}
+2025-12-21 17:35:12,115 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:35:18,026 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:35:19,382 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:35:19,382 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:35:19,383 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:35:19,383 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:36:26,766 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:36:32,121 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:36:33,064 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:36:33,064 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:36:33,065 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:36:33,065 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:38:31,183 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问“什么是露点温度”。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索返回了关于露点温度的大量信息，但内容被分割成大量片段，可读性较差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:38:31,183 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问“什么是露点温度”。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索返回了关于露点温度的大量信息，但内容被分割成大量片段，可读性较差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:38:31,183 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问“什么是露点温度”。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索返回了关于露点温度的大量信息，但内容被分割成大量片段，可读性较差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:38:31,183 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户再次询问“什么是露点温度”。这是一个气象专业概念的定义问题。根据指令，遇到此类问题应优先调用 consult_knowledge_base 工具查询专业知识库，而不是仅凭记忆回答。之前的对话历史显示，知识库检索返回了关于露点温度的大量信息，但内容被分割成大量片段，可读性较差。我需要重新查询，以获取更清晰、完整的定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:38:31,185 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义'}
+2025-12-21 17:38:31,185 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义'}
+2025-12-21 17:38:31,185 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义'}
+2025-12-21 17:38:31,185 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度的定义'}
+2025-12-21 17:39:40,247 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:39:46,054 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:39:47,926 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:39:47,926 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:39:47,927 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:39:47,927 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:39:57,370 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:39:57,370 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:40:02,645 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:40:02,645 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:40:18,832 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'露点温度'的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:40:18,832 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'露点温度'的定义和解释。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询。因此，我将使用该工具来获取关于露点温度的权威解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:40:18,834 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度'}
+2025-12-21 17:40:18,834 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度'}
+2025-12-21 17:48:50,703 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:48:56,252 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:48:57,262 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:48:57,262 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:48:57,262 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:48:57,262 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:49:33,631 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:49:39,079 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:49:40,842 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:49:40,842 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:49:40,842 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:49:40,842 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:51:00,898 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:51:00,898 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:51:06,126 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:51:06,126 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:51:07,719 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****b9e9 is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-12-21 17:51:07,719 - dynamic_meteor - INFO - Raw LLM Response: Error communicating with AI: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****b9e9 is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-12-21 17:51:07,721 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 17:51:07,721 - dynamic_meteor - WARNING - Failed to parse JSON directly. Attempting regex extraction.
+2025-12-21 17:53:17,845 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'NoneType'>
+2025-12-21 17:53:23,750 - dynamic_meteor - INFO - 开始生成气象计算工具...
+2025-12-21 17:53:25,556 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:53:25,556 - dynamic_meteor - INFO - 工具生成完成，共生成 151 个工具
+2025-12-21 17:53:25,558 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:53:25,558 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:53:38,272 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:53:38,272 - dynamic_meteor - INFO - Initializing MeteorologyAgent with api_key type: <class 'str'>
+2025-12-21 17:53:43,624 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:53:43,624 - dynamic_meteor - INFO - Loaded 156 tools.
+2025-12-21 17:53:53,838 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问“什么露点温度”，这是一个关于气象专业概念定义的问题。根据指令，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具进行查询，而不是凭记忆回答。因此，我将使用该工具来获取关于露点温度的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度 定义 概念 解释"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:53:53,838 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问“什么露点温度”，这是一个关于气象专业概念定义的问题。根据指令，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具进行查询，而不是凭记忆回答。因此，我将使用该工具来获取关于露点温度的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "露点温度 定义 概念 解释"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:53:53,840 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度 定义 概念 解释'}
+2025-12-21 17:53:53,840 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '露点温度 定义 概念 解释'}
+2025-12-21 17:54:25,718 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是饱和水汽压'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用 consult_knowledge_base 工具来获取关于饱和水汽压的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "饱和水汽压"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:54:25,718 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是饱和水汽压'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用 consult_knowledge_base 工具来获取关于饱和水汽压的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "饱和水汽压"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:54:25,720 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '饱和水汽压'}
+2025-12-21 17:54:25,720 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '饱和水汽压'}
+2025-12-21 17:54:57,908 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是位温'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，优先调用consult_knowledge_base工具查询。因此，我需要使用该工具来获取位温的准确专业定义和相关信息，而不是凭记忆回答。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "位温"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:54:57,908 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是位温'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，优先调用consult_knowledge_base工具查询。因此，我需要使用该工具来获取位温的准确专业定义和相关信息，而不是凭记忆回答。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "位温"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:54:57,910 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '位温'}
+2025-12-21 17:54:57,910 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '位温'}
+2025-12-21 17:55:22,848 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是地转风'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用consult_knowledge_base工具来获取关于地转风的准确定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "地转风"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:55:22,848 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是地转风'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用consult_knowledge_base工具来获取关于地转风的准确定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "地转风"
+    },
+    "response": ""
+}
+```
+2025-12-21 17:55:22,850 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '地转风'}
+2025-12-21 17:55:22,850 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '地转风'}
+2025-12-21 18:06:01,497 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是降水量'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，而不是凭记忆回答。因此，我需要使用consult_knowledge_base工具来获取关于降水量的准确专业定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "降水量"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:06:01,497 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是降水量'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，而不是凭记忆回答。因此，我需要使用consult_knowledge_base工具来获取关于降水量的准确专业定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "降水量"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:06:01,497 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是降水量'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，而不是凭记忆回答。因此，我需要使用consult_knowledge_base工具来获取关于降水量的准确专业定义。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "降水量"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:06:01,499 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '降水量'}
+2025-12-21 18:06:01,499 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '降水量'}
+2025-12-21 18:06:01,499 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '降水量'}
+2025-12-21 18:06:34,233 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是位温'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用consult_knowledge_base工具来获取关于'位温'的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "位温"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:06:34,233 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是位温'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用consult_knowledge_base工具来获取关于'位温'的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "位温"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:06:34,233 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是位温'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用consult_knowledge_base工具来获取关于'位温'的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "位温"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:06:34,234 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '位温'}
+2025-12-21 18:06:34,234 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '位温'}
+2025-12-21 18:06:34,234 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '位温'}
+2025-12-21 18:07:13,547 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是地转风'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是仅凭记忆。因此，我需要使用 consult_knowledge_base 工具来获取关于地转风的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "地转风"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:07:13,547 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是地转风'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是仅凭记忆。因此，我需要使用 consult_knowledge_base 工具来获取关于地转风的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "地转风"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:07:13,547 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'什么是地转风'，这是一个气象学专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是仅凭记忆。因此，我需要使用 consult_knowledge_base 工具来获取关于地转风的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "地转风"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:07:13,548 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '地转风'}
+2025-12-21 18:07:13,548 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '地转风'}
+2025-12-21 18:07:13,548 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '地转风'}
+2025-12-21 18:08:13,635 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'云属的定义'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询。因此，我将使用该工具来获取关于'云属'的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "云属的定义"
+    },
+    "response": null
+}
+```
+2025-12-21 18:08:13,635 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'云属的定义'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询。因此，我将使用该工具来获取关于'云属'的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "云属的定义"
+    },
+    "response": null
+}
+```
+2025-12-21 18:08:13,635 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问'云属的定义'，这是一个气象专业概念的定义问题。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用consult_knowledge_base工具查询。因此，我将使用该工具来获取关于'云属'的权威定义和解释。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "云属的定义"
+    },
+    "response": null
+}
+```
+2025-12-21 18:08:13,636 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '云属的定义'}
+2025-12-21 18:08:13,636 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '云属的定义'}
+2025-12-21 18:08:13,636 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '云属的定义'}
+2025-12-21 18:24:43,276 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'云属的定义'。这是一个气象学基础知识问题，涉及云分类的标准定义。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用 consult_knowledge_base 工具来获取关于'云属'的权威定义和相关信息。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "云属的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:24:43,276 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'云属的定义'。这是一个气象学基础知识问题，涉及云分类的标准定义。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用 consult_knowledge_base 工具来获取关于'云属'的权威定义和相关信息。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "云属的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:24:43,276 - dynamic_meteor - INFO - Raw LLM Response: ```json
+{
+    "thought": "用户询问的是气象专业概念'云属的定义'。这是一个气象学基础知识问题，涉及云分类的标准定义。根据指令第5条，遇到气象专业概念、定义或标准规范类问题，应优先调用 consult_knowledge_base 工具查询，根据检索结果回答，而不是凭记忆编造。因此，我需要使用 consult_knowledge_base 工具来获取关于'云属'的权威定义和相关信息。",
+    "tool": "consult_knowledge_base",
+    "args": {
+        "query": "云属的定义"
+    },
+    "response": ""
+}
+```
+2025-12-21 18:24:43,277 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '云属的定义'}
+2025-12-21 18:24:43,277 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '云属的定义'}
+2025-12-21 18:24:43,277 - dynamic_meteor - INFO - Executing tool consult_knowledge_base with args {'query': '云属的定义'}
