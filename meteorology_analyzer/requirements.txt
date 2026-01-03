@@ -14,3 +14,7 @@ pypdf
 faiss-cpu
 sentence-transformers
 langchain-text-splitters
+plotly>=5.18.0
+xarray>=2023.1.0
+netCDF4>=1.6.0
+h5netcdf>=1.0.0
